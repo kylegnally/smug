@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">smug</string>
+    <string name="app_name">Smug</string>
     <string name="smug__button_text">SMUG</string>
+    <string name="smugEricImage">Eric Cartman on his couch</string>
 </resources>

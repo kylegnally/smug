@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/linear_layout"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/ericCouch"
+        android:layout_width="wrap_content"
+        android:layout_height="167dp"
+        android:layout_marginTop="172dp"
+        android:contentDescription="@string/smugEricImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/smug"/>
+</android.support.constraint.ConstraintLayout>
