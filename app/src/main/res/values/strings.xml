@@ -2,4 +2,6 @@
     <string name="app_name">Smug</string>
     <string name="smug__button_text">SMUG</string>
     <string name="smugEricImage">Eric Cartman on his couch</string>
+    <string name="smugCloudsImage">Clouds of smug.</string>
+    <string name="smugButtonText">............Smug.</string>
 </resources>
