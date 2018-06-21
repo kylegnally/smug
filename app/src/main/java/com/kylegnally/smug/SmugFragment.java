@@ -21,9 +21,11 @@ public class SmugFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mSmug = new Smug(getActivity());
+        if (mSmug == null){
+            mSmug = new Smug(getActivity());
+        }
         View view = inflater.inflate(R.layout.fragment_smug, container, false);
-        Button mButton = (Button) view.findViewById(R.id.smugButton);
+        Button mButton = view.findViewById(R.id.smugButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
