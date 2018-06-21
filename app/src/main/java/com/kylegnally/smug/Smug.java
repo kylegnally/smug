@@ -19,12 +19,14 @@ public class Smug {
     private static final int MAX_SOUNDS = 1;
 
     private int soundCount;
+    private int lastSound = -1;
+    private int soundId;
 
     private AssetManager mAssets;
     private List<Sound> mSounds = new ArrayList<>();
     private SoundPool mSoundPool;
 
-    public Smug(Context context){
+    Smug(Context context){
         mAssets = context.getAssets();
         mSoundPool = new SoundPool(MAX_SOUNDS, AudioManager.STREAM_MUSIC, 0);
         loadSounds();
@@ -58,7 +60,7 @@ public class Smug {
         AssetFileDescriptor afd = mAssets.openFd(sound.getAssetPath());
 
         // load the sound file and set an integer to its Id
-        int soundId = mSoundPool.load(afd, 1);
+        soundId = mSoundPool.load(afd, 1);
 
         // set the Id of the sound using the integer we just set
         sound.setSoundId(soundId);
@@ -68,13 +70,17 @@ public class Smug {
         Integer count = smug.soundCount;
         int min = 1;
         int max = count;
-        //Integer soundId = sound.getSoundId(soundCount);
-        if (count == null) {
-            return;
-        }
+        // if there are any sounds in the project this always returns false.
+        // Since this project USES sounds this check is commented out.
+        // Uncomment and remove sounds from project to test.
+//        if (count == null) {
+//            return;
+//        }
         Random rand = new Random();
-        int soundId = rand.nextInt(max - min + 1) + min;
-
+        soundId = rand.nextInt(max - min + 1) + min;
+        if (soundId == lastSound){
+            play(smug);
+        }
         // Play the sound!
         // Params:
         // soundId - Id number of the sound that we set in load()
@@ -84,6 +90,7 @@ public class Smug {
         // loop - whether the sound plays over again indefinitely (-1 to loop forever)
         // rate - the playback rate of the sound
         mSoundPool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f);
+        lastSound = soundId;
     }
 
     public void release() {
