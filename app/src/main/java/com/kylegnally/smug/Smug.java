@@ -19,7 +19,6 @@ public class Smug {
     private static final int MAX_SOUNDS = 1;
 
     private int soundCount;
-    private Random r;
 
     private AssetManager mAssets;
     private List<Sound> mSounds = new ArrayList<>();
@@ -67,12 +66,14 @@ public class Smug {
 
     public void play(Smug smug) {
         Integer count = smug.soundCount;
+        int min = 1;
+        int max = count;
         //Integer soundId = sound.getSoundId(soundCount);
         if (count == null) {
             return;
         }
         Random rand = new Random();
-        int soundId = rand.nextInt(count + 1);
+        int soundId = rand.nextInt(max - min + 1) + min;
 
         // Play the sound!
         // Params:
