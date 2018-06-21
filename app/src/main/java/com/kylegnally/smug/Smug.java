@@ -65,11 +65,15 @@ public class Smug {
         sound.setSoundId(soundId);
     }
 
-    public void play(Sound sound) {
-        Integer soundId = sound.getSoundId(soundCount);
-        if (soundId == null) {
+    public void play(Smug smug) {
+        Integer count = smug.soundCount;
+        //Integer soundId = sound.getSoundId(soundCount);
+        if (count == null) {
             return;
         }
+        Random rand = new Random();
+        int soundId = rand.nextInt(count + 1);
+
         // Play the sound!
         // Params:
         // soundId - Id number of the sound that we set in load()

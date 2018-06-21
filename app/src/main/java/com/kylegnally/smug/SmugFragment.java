@@ -8,12 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import java.util.List;
+import java.util.Random;
 
 public class SmugFragment extends Fragment {
     private Smug mSmug;
-    private Sound mSound;
 
     public static SmugFragment newInstance() {
         return new SmugFragment();
@@ -22,12 +21,13 @@ public class SmugFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mSmug = new Smug(getActivity());
         View view = inflater.inflate(R.layout.fragment_smug, container, false);
         Button mButton = (Button) view.findViewById(R.id.smugButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSmug.play(mSound);
+                mSmug.play(mSmug);
             }
         });
         return view;
@@ -43,6 +43,5 @@ public class SmugFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        mSmug = new Smug(getActivity());
     }
 }
