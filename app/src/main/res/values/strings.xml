@@ -4,4 +4,6 @@
     <string name="smugEricImage">Eric Cartman on his couch</string>
     <string name="smugCloudsImage">Clouds of smug.</string>
     <string name="smugButtonText">............Smug.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
